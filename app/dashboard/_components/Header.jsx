@@ -5,6 +5,7 @@ import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "@/components/ModeToggle";
 import Link from "next/link";
+
 const Header = ({ logo }) => {
   const [isUserButtonLoaded, setUserButtonLoaded] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
@@ -30,12 +31,17 @@ const Header = ({ logo }) => {
   useEffect(() => {
     console.log(path);
   }, []);
+
   return (
     <div className=" bg-secondary shadow-sm ">
       <div className="w-[80%] m-auto flex gap-4 items-center justify-between">
         <Link className="hidden md:block"  href="/dashboard">
-          <Image src={logo} width={80} height={80} alt="logo" />
+          
+          {/* ✅ ONLY CHANGE HERE */}
+          <Image src="/logo5.png" width={200} height={200} alt="logo5.png" />
+        
         </Link>
+
         <ul className="hidden md:flex gap-6">
           <Link href="/dashboard">
             <li
@@ -76,6 +82,7 @@ const Header = ({ logo }) => {
             </li>
           </Link>
         </ul>
+
         <div className="md:hidden">
           <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
             <span className="sr-only">Open main menu</span>
@@ -90,11 +97,13 @@ const Header = ({ logo }) => {
             )}
           </button>
         </div>
+
         <div className="flex gap-10" >
           <ModeToggle  />
           {isUserButtonLoaded ? <UserButton /> : <SkeletonLoader />}
         </div>
       </div>
+
       {isOpen && (
         <div className="md:hidden">
           <div className="px-5">

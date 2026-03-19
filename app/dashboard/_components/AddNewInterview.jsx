@@ -113,7 +113,7 @@ const AddNewInterview = () => {
                   </div>
                   <div className="my-5">
                     <label className="text-black">
-                      Job Description/ Tech stack (In Short)
+                      Job Description(In Short)
                     </label>
                     <Textarea
                       className="placeholder-opacity-50"
